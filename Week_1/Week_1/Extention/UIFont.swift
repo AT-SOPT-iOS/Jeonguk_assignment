@@ -9,18 +9,28 @@ import UIKit
 
 extension UIFont {
     enum Pretendard {
-        static func regular(size: CGFloat) -> UIFont {
-            return UIFont(name: "Pretendard-Regular", size: size)!
+        static func head1(size: CGFloat) -> UIFont {
+            return UIFont(name: "Pretendard-Regular", size: 25)!
         }
         
-        static func bold(size: CGFloat) -> UIFont {
-            return UIFont(name: "Pretendard-Bold", size: size)!
+        static func subhead1(size: CGFloat) -> UIFont {
+            return UIFont(name: "Pretendard-Bold", size: 18)!
         }
 
-        static func semiBold(size: CGFloat) -> UIFont {
-            return UIFont(name: "Pretendard-SemiBold", size: size)!
+        static func subhead2(size: CGFloat) -> UIFont {
+            return UIFont(name: "Pretendard-SemiBold", size: 16)!
         }
         
-        // 필요한 스타일 추가 가능
+        static func subhead3(size: CGFloat) -> UIFont {
+            return UIFont(name: "Pretendard-SemiBold", size: 15)!
+        }
+        
+        static func subhead4(size: CGFloat) -> UIFont {
+            return UIFont(name: "Pretendard-SemiBold", size: 14)!
+        }
+        
+        static func subhead5(size: CGFloat) -> UIFont {
+            return UIFont(name: "Pretendard-SemiBold", size: 14)!
+        }
     }
 }

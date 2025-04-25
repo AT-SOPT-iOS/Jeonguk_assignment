@@ -14,12 +14,14 @@ class DetailViewController: UIViewController {
     
     // MARK: - Properties
     
+    var userInfo: String?
+    
     // MARK: - UI Components
     
     private let tvingImageView: UIImageView = UIImageView()
     private let userInfoLabel: UILabel = UILabel()
     private let backToMainButton: UIButton = UIButton()
-
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -30,7 +32,7 @@ class DetailViewController: UIViewController {
         setLayout()
     }
     
-    // MARK: - Layout
+    // MARK: - setStyle
     
     private func setStyle() {
         view.backgroundColor = .black
@@ -40,12 +42,13 @@ class DetailViewController: UIViewController {
         }
         
         userInfoLabel.do {
-            $0.text = "qweqew@.com님 \n반가워요!"
+            $0.text = "\(userInfo ?? "")님 \n반가워요!"
             $0.textColor = .white
         }
         
         backToMainButton.do {
             $0.backgroundColor = .TvingRed
+            $0.addTarget(self, action: #selector(backToMainButtonTapped), for: .touchUpInside)
             $0.setTitle("메인으로", for: .normal)
             $0.setTitleColor(.white, for: .normal)
             $0.layer.cornerRadius = 3
@@ -53,9 +56,13 @@ class DetailViewController: UIViewController {
         }
     }
     
+    // MARK: - setUI
+    
     private func setUI() {
-         view.addSubviews(tvingImageView, userInfoLabel, backToMainButton)
+        view.addSubviews(tvingImageView, userInfoLabel, backToMainButton)
     }
+    
+    // MARK: - setLayout
     
     private func setLayout() {
         tvingImageView.snp.makeConstraints {
@@ -74,5 +81,9 @@ class DetailViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(52)
         }
+    }
+    
+    @objc private func backToMainButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -30,6 +30,8 @@ class LoginViewController: UIViewController {
     private let findStackView = UIStackView()
     private let accountStackView = UIStackView()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,7 +39,45 @@ class LoginViewController: UIViewController {
         setUI()
         setLayout()
         setDelegate()
+        setAction()
     }
+    
+    // MARK: - setUI
+    
+    private func setUI() {
+        view.addSubviews(scrollView)
+        scrollView.addSubview(contentView)
+        
+        // 스택뷰 내부에 구성 요소 넣기
+        findStackView.addArrangedSubview(findIdButton)
+        findStackView.addArrangedSubview(dividerView)
+        findStackView.addArrangedSubview(findPassWordButton)
+        
+        accountStackView.addArrangedSubview(noAccountLabel)
+        accountStackView.addArrangedSubview(createNickNameButton)
+        
+        contentView.addSubviews(
+            mainLabel,
+            idTextField,
+            passWordTextField,
+            loginButton,
+            findStackView,
+            accountStackView
+        )
+        
+    }
+    
+    // MARK: - setAction
+    
+    private func setAction() {
+        [idTextField, passWordTextField].forEach {
+            $0.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+        }
+        
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
+    // MARK: - setStyle
     
     private func setStyle() {
         view.backgroundColor = .black
@@ -136,29 +176,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func setUI() {
-        view.addSubviews(scrollView)
-        scrollView.addSubview(contentView)
-        
-        // 스택뷰 내부에 구성 요소 넣기
-        findStackView.addArrangedSubview(findIdButton)
-        findStackView.addArrangedSubview(dividerView)
-        findStackView.addArrangedSubview(findPassWordButton)
-        
-        accountStackView.addArrangedSubview(noAccountLabel)
-        accountStackView.addArrangedSubview(createNickNameButton)
-        
-        contentView.addSubviews(
-            mainLabel,
-            idTextField,
-            passWordTextField,
-            loginButton,
-            findStackView,
-            accountStackView
-        )
-        
-        
-    }
+    //MARK: - setLayout
     
     private func setLayout() {
         
@@ -249,7 +267,7 @@ class LoginViewController: UIViewController {
         stack.spacing = 8
         stack.alignment = .center
         stack.isLayoutMarginsRelativeArrangement = true // 패딩주기 스택 기본적으로 내부 패딩을 무시해서 활성화 필요
-        stack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 22) // 내부 여백 설정 Inset임 
+        stack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 22) // 내부 여백 설정 Inset임
         
         // container : 스택에 여백을 주기 위해 만든것
         let container = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
@@ -261,6 +279,9 @@ class LoginViewController: UIViewController {
         
     }
     
+    
+    //MARK: - Action
+    
     @objc private func togglePasswordVisibility(_ sender: UIButton) {
         passWordTextField.isSecureTextEntry.toggle()
         let imageName = passWordTextField.isSecureTextEntry ? "eye.slash" : "eye"
@@ -271,7 +292,28 @@ class LoginViewController: UIViewController {
         passWordTextField.text = ""
     }
     
+    @objc private func loginButtonTapped() {
+        guard !(idTextField.text?.isEmpty ?? true), !(passWordTextField.text?.isEmpty ?? true) else { return }
+        let detailVC = DetailViewController()
+        detailVC.userInfo = idTextField.text
+        detailVC.modalPresentationStyle = .fullScreen
+        present(detailVC, animated: true)
+    }
+    
+    @objc private func textFieldEditingChanged(_ sender: UITextField) {
+        updateLoginButtonState()
+    }
+    
+    private func updateLoginButtonState() {
+        let isValid = !(idTextField.text?.isEmpty ?? true) && !(passWordTextField.text?.isEmpty ?? true)
+        
+        loginButton.backgroundColor = isValid ? .TvingRed : .black
+        loginButton.setTitleColor(isValid ? .white : .Gray2, for: .normal)
+    }
+    
 }
+
+//MARK: - Delegate
 
 extension LoginViewController {
     func setDelegate() {
@@ -279,6 +321,8 @@ extension LoginViewController {
         passWordTextField.delegate = self
     }
 }
+
+//MARK: - UITextFieldDelegate
 
 extension LoginViewController: UITextFieldDelegate {
     

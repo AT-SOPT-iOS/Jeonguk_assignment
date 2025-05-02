@@ -12,6 +12,7 @@ enum HomeSectionType: Int, CaseIterable {
     case toDayTivingTop20
     case popularLive
     case popularMovie
+    case notice
 }
 
 struct CompositionalLayoutFactory {
@@ -29,6 +30,8 @@ struct CompositionalLayoutFactory {
                 section = makePopularLiveSection()
             case .popularMovie:
                 section = makePopularMovieSection()
+            case .notice:
+                section = makeNoticeSection()
             case .none:
                 section = makeTop20Section()
             }
@@ -167,7 +170,7 @@ struct CompositionalLayoutFactory {
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 18, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 23, trailing: 10)
       
         
         // 헤더 사이즈 및 SupplementaryItem 설정
@@ -186,4 +189,25 @@ struct CompositionalLayoutFactory {
         
         return section
     }
+    
+    private static func makeNoticeSection() -> NSCollectionLayoutSection {
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(100) 
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(100)
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 30, trailing: 10)
+
+        return section
+    }
+
 }

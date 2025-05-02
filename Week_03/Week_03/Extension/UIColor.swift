@@ -11,6 +11,15 @@ extension UIColor {
     static var TvingRed: UIColor {
         return UIColor(hex: "#FF143C")
     }
+    static var Gray8C: UIColor {
+        return UIColor(hex: "#8C8C8C")
+    }
+    static var GrayD9: UIColor {
+        return UIColor(hex: "#D9D9D9")
+    }
+    static var Gray21: UIColor {
+        return UIColor(hex: "#212121")
+    }
     static var Gray5: UIColor {
         return UIColor(hex: "#191919")
     }

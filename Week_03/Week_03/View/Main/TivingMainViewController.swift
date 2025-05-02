@@ -86,6 +86,7 @@ final class TivingMainViewController: UIViewController {
             $0.register(SeeMoreSectionHeader.self,
                         forSupplementaryViewOfKind: SeeMoreSectionHeader.elementKind,
                         withReuseIdentifier: SeeMoreSectionHeader.identifier)
+            $0.register(NoticeCell.self, forCellWithReuseIdentifier: NoticeCell.identifier)
         }
         
     }
@@ -183,6 +184,7 @@ extension TivingMainViewController: UICollectionViewDataSource {
         case .toDayTivingTop20: return top20Data.count
         case .popularLive: return popularLiveData.count
         case .popularMovie: return popularMovieData.count
+        case .notice: return 1
         }
     }
     
@@ -233,6 +235,11 @@ extension TivingMainViewController: UICollectionViewDataSource {
                 for: indexPath) as! PopularMovieCell
             cell.configure(image: popularMovieData[indexPath.item].Image)
             return cell
+        case .notice:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: NoticeCell.identifier,
+                for: indexPath) as! NoticeCell
+            return cell
         }
     }
     
@@ -274,6 +281,7 @@ extension TivingMainViewController: UICollectionViewDataSource {
                 header.configure(title: "실시간 인기 LIVE")
                 return header
             }
+            
         case .popularMovie:
             if kind == SeeMoreSectionHeader.elementKind {
                 let header = collectionView.dequeueReusableSupplementaryView(
@@ -284,6 +292,9 @@ extension TivingMainViewController: UICollectionViewDataSource {
                 header.configure(title: "실시간 인기 영화")
                 return header
             }
+            
+        case .notice:
+            return UICollectionReusableView()
         }
         return UICollectionReusableView()
     }

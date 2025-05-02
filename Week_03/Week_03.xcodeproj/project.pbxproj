@@ -18,13 +18,19 @@
 		2FE19F052DC3A1C900531A34 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19EEB2DC3A1C900531A34 /* UITextField.swift */; };
 		2FE19F062DC3A1C900531A34 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19EEC2DC3A1C900531A34 /* UIView.swift */; };
 		2FE19F072DC3A1C900531A34 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19EF32DC3A1C900531A34 /* BannerCell.swift */; };
-		2FE19F082DC3A1C900531A34 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19EF42DC3A1C900531A34 /* SectionHeaderView.swift */; };
 		2FE19F092DC3A1C900531A34 /* TivingTop20Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19EF52DC3A1C900531A34 /* TivingTop20Cell.swift */; };
 		2FE19F0A2DC3A1C900531A34 /* CompositionalLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19EF82DC3A1C900531A34 /* CompositionalLayoutFactory.swift */; };
 		2FE19F0B2DC3A1C900531A34 /* TivingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19EF92DC3A1C900531A34 /* TivingMainViewController.swift */; };
 		2FE19F0D2DC3A26500531A34 /* Top20Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F0C2DC3A26500531A34 /* Top20Model.swift */; };
 		2FE19F0F2DC3B03600531A34 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F0E2DC3B03600531A34 /* UILabel.swift */; };
 		2FE19F112DC4A1C300531A34 /* TabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F102DC4A1C300531A34 /* TabBarCell.swift */; };
+		2FE19F152DC4B08900531A34 /* PopularLiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F142DC4B08900531A34 /* PopularLiveCell.swift */; };
+		2FE19F192DC4BBBC00531A34 /* PopularLiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F182DC4BBBC00531A34 /* PopularLiveModel.swift */; };
+		2FE19F1F2DC4EED600531A34 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F1B2DC4EED600531A34 /* SectionHeaderView.swift */; };
+		2FE19F202DC4EED600531A34 /* SeeMoreSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F1C2DC4EED600531A34 /* SeeMoreSectionHeader.swift */; };
+		2FE19F212DC4EED600531A34 /* TvingMainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F1D2DC4EED600531A34 /* TvingMainHeaderView.swift */; };
+		2FE19F232DC4EF0600531A34 /* PopularMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F222DC4EF0600531A34 /* PopularMovieCell.swift */; };
+		2FE19F252DC4F19800531A34 /* PopularMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F242DC4F19800531A34 /* PopularMovieModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +44,6 @@
 		2FE19EEF2DC3A1C900531A34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FE19EF02DC3A1C900531A34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FE19EF32DC3A1C900531A34 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
-		2FE19EF42DC3A1C900531A34 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		2FE19EF52DC3A1C900531A34 /* TivingTop20Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TivingTop20Cell.swift; sourceTree = "<group>"; };
 		2FE19EF82DC3A1C900531A34 /* CompositionalLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutFactory.swift; sourceTree = "<group>"; };
 		2FE19EF92DC3A1C900531A34 /* TivingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TivingMainViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +51,13 @@
 		2FE19F0C2DC3A26500531A34 /* Top20Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top20Model.swift; sourceTree = "<group>"; };
 		2FE19F0E2DC3B03600531A34 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		2FE19F102DC4A1C300531A34 /* TabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCell.swift; sourceTree = "<group>"; };
+		2FE19F142DC4B08900531A34 /* PopularLiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularLiveCell.swift; sourceTree = "<group>"; };
+		2FE19F182DC4BBBC00531A34 /* PopularLiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularLiveModel.swift; sourceTree = "<group>"; };
+		2FE19F1B2DC4EED600531A34 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		2FE19F1C2DC4EED600531A34 /* SeeMoreSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreSectionHeader.swift; sourceTree = "<group>"; };
+		2FE19F1D2DC4EED600531A34 /* TvingMainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingMainHeaderView.swift; sourceTree = "<group>"; };
+		2FE19F222DC4EF0600531A34 /* PopularMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCell.swift; sourceTree = "<group>"; };
+		2FE19F242DC4F19800531A34 /* PopularMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				2FE19F0C2DC3A26500531A34 /* Top20Model.swift */,
+				2FE19F182DC4BBBC00531A34 /* PopularLiveModel.swift */,
+				2FE19F242DC4F19800531A34 /* PopularMovieModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,9 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				2FE19EF32DC3A1C900531A34 /* BannerCell.swift */,
-				2FE19EF42DC3A1C900531A34 /* SectionHeaderView.swift */,
 				2FE19EF52DC3A1C900531A34 /* TivingTop20Cell.swift */,
 				2FE19F102DC4A1C300531A34 /* TabBarCell.swift */,
+				2FE19F142DC4B08900531A34 /* PopularLiveCell.swift */,
+				2FE19F222DC4EF0600531A34 /* PopularMovieCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -129,6 +144,7 @@
 		2FE19EF72DC3A1C900531A34 /* MainCompositionalLayout */ = {
 			isa = PBXGroup;
 			children = (
+				2FE19EF82DC3A1C900531A34 /* CompositionalLayoutFactory.swift */,
 			);
 			path = MainCompositionalLayout;
 			sourceTree = "<group>";
@@ -136,9 +152,9 @@
 		2FE19EFA2DC3A1C900531A34 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2FE19F1E2DC4EED600531A34 /* Header */,
 				2FE19EF62DC3A1C900531A34 /* Cell */,
 				2FE19EF72DC3A1C900531A34 /* MainCompositionalLayout */,
-				2FE19EF82DC3A1C900531A34 /* CompositionalLayoutFactory.swift */,
 				2FE19EF92DC3A1C900531A34 /* TivingMainViewController.swift */,
 			);
 			path = Main;
@@ -163,6 +179,16 @@
 				2FE19EFC2DC3A1C900531A34 /* Info.plist */,
 			);
 			path = Week_03;
+			sourceTree = "<group>";
+		};
+		2FE19F1E2DC4EED600531A34 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				2FE19F1B2DC4EED600531A34 /* SectionHeaderView.swift */,
+				2FE19F1C2DC4EED600531A34 /* SeeMoreSectionHeader.swift */,
+				2FE19F1D2DC4EED600531A34 /* TvingMainHeaderView.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,16 +271,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE19F012DC3A1C900531A34 /* AppDelegate.swift in Sources */,
+				2FE19F232DC4EF0600531A34 /* PopularMovieCell.swift in Sources */,
 				2FE19F0F2DC3B03600531A34 /* UILabel.swift in Sources */,
 				2FE19F022DC3A1C900531A34 /* SceneDelegate.swift in Sources */,
+				2FE19F1F2DC4EED600531A34 /* SectionHeaderView.swift in Sources */,
+				2FE19F202DC4EED600531A34 /* SeeMoreSectionHeader.swift in Sources */,
+				2FE19F212DC4EED600531A34 /* TvingMainHeaderView.swift in Sources */,
+				2FE19F152DC4B08900531A34 /* PopularLiveCell.swift in Sources */,
 				2FE19F032DC3A1C900531A34 /* UIColor.swift in Sources */,
 				2FE19F042DC3A1C900531A34 /* UIImage.swift in Sources */,
 				2FE19F052DC3A1C900531A34 /* UITextField.swift in Sources */,
+				2FE19F192DC4BBBC00531A34 /* PopularLiveModel.swift in Sources */,
 				2FE19F0D2DC3A26500531A34 /* Top20Model.swift in Sources */,
 				2FE19F062DC3A1C900531A34 /* UIView.swift in Sources */,
+				2FE19F252DC4F19800531A34 /* PopularMovieModel.swift in Sources */,
 				2FE19F072DC3A1C900531A34 /* BannerCell.swift in Sources */,
 				2FE19F112DC4A1C300531A34 /* TabBarCell.swift in Sources */,
-				2FE19F082DC3A1C900531A34 /* SectionHeaderView.swift in Sources */,
 				2FE19F092DC3A1C900531A34 /* TivingTop20Cell.swift in Sources */,
 				2FE19F0A2DC3A1C900531A34 /* CompositionalLayoutFactory.swift in Sources */,
 				2FE19F0B2DC3A1C900531A34 /* TivingMainViewController.swift in Sources */,

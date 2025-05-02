@@ -44,6 +44,12 @@ final class TivingTop20Cell: UICollectionViewCell {
             $0.font = .boldItalicSystemFont(ofSize: 50)
             $0.textColor = .white
         }
+        
+        top20Image.do {
+            $0.contentMode = .scaleAspectFill
+            $0.layer.cornerRadius = 3
+            $0.clipsToBounds = true
+        }
     }
     
     // MARK: - SetLayout

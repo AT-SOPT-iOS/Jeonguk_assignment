@@ -56,6 +56,12 @@ final class PopularLiveCell: UICollectionViewCell {
     // MARK: - SetStyle
     
     private func setStyle() {
+        popularLiveImage.do {
+            $0.contentMode = .scaleAspectFill
+            $0.layer.cornerRadius = 3
+            $0.clipsToBounds = true
+        }
+        
         popularLiveRank.do {
             $0.font = .boldItalicSystemFont(ofSize: 19)
             $0.textColor = .white

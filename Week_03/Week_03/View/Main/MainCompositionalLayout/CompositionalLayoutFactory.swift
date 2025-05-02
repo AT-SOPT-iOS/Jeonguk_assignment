@@ -11,6 +11,7 @@ enum HomeSectionType: Int, CaseIterable {
     case banner = 0
     case toDayTivingTop20
     case popularLive
+    case popularMovie
 }
 
 struct CompositionalLayoutFactory {
@@ -26,6 +27,8 @@ struct CompositionalLayoutFactory {
                 section = makeTop20Section()
             case .popularLive:
                 section = makePopularLiveSection()
+            case .popularMovie:
+                section = makePopularMovieSection()
             case .none:
                 section = makeTop20Section()
             }
@@ -109,7 +112,7 @@ struct CompositionalLayoutFactory {
         // 아이템 사이즈
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .absolute(167),
-            heightDimension: .estimated(110)) // estimated 자동 cell 높이 지정
+            heightDimension: .estimated(130)) // estimated 자동 cell 높이 지정
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 7)
@@ -117,7 +120,7 @@ struct CompositionalLayoutFactory {
         // 그룹사이즈
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .estimated(334),
-            heightDimension: .estimated(110))
+            heightDimension: .estimated(130))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
@@ -127,7 +130,47 @@ struct CompositionalLayoutFactory {
         section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 18, trailing: 10)
       
         
-        // 4️⃣ 헤더 사이즈 및 SupplementaryItem 설정
+        // 헤더 사이즈 및 SupplementaryItem 설정
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(23)
+        )
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: SeeMoreSectionHeader.elementKind,
+            alignment: .top
+        )
+
+        section.boundarySupplementaryItems = [header] 
+        
+        return section
+    }
+    
+    private static func makePopularMovieSection() -> NSCollectionLayoutSection {
+        
+        // 아이템 사이즈
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(98),
+            heightDimension: .estimated(160))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8)
+
+        // 그룹사이즈
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(196),
+            heightDimension: .estimated(160))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 18, trailing: 10)
+      
+        
+        // 헤더 사이즈 및 SupplementaryItem 설정
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(23)                // 헤더 높이 고정
@@ -139,7 +182,7 @@ struct CompositionalLayoutFactory {
             alignment: .top
         )
 
-        section.boundarySupplementaryItems = [header] 
+        section.boundarySupplementaryItems = [header]
         
         return section
     }

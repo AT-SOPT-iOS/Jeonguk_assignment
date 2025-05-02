@@ -19,6 +19,7 @@ final class TivingMainViewController: UIViewController {
     private let bannerData = [ImageLiterals.tiving_Benner1, ImageLiterals.tiving_Benner2, ImageLiterals.tiving_Benner3]
     private let top20Data = Top20Model.mockData()
     private let popularLiveData = PopularLiveModel.mockData()
+    private let popularMovieData = PopularMovieModel.mockData()
     
     // MARK: - UI Components
     
@@ -77,10 +78,11 @@ final class TivingMainViewController: UIViewController {
             $0.dataSource = self
             $0.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
             $0.register(TivingTop20Cell.self, forCellWithReuseIdentifier: TivingTop20Cell.identifier)
+            $0.register(PopularLiveCell.self, forCellWithReuseIdentifier: PopularLiveCell.identifier)
+            $0.register(PopularMovieCell.self, forCellWithReuseIdentifier: PopularMovieCell.identifier)
             $0.register(SectionHeaderView.self,
                         forSupplementaryViewOfKind: SectionHeaderView.elementKind,
                         withReuseIdentifier: SectionHeaderView.identifier)
-            $0.register(PopularLiveCell.self, forCellWithReuseIdentifier: PopularLiveCell.identifier)
             $0.register(SeeMoreSectionHeader.self,
                         forSupplementaryViewOfKind: SeeMoreSectionHeader.elementKind,
                         withReuseIdentifier: SeeMoreSectionHeader.identifier)
@@ -180,6 +182,7 @@ extension TivingMainViewController: UICollectionViewDataSource {
         case .banner: return bannerData.count
         case .toDayTivingTop20: return top20Data.count
         case .popularLive: return popularLiveData.count
+        case .popularMovie: return popularMovieData.count
         }
     }
     
@@ -218,15 +221,19 @@ extension TivingMainViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: PopularLiveCell.identifier,
                 for: indexPath) as! PopularLiveCell
-            //cell.configure(rank: top20Data[indexPath.item].Top20Rank, image: top20Data[indexPath.item].Top20Image)
             cell.configure(image: popularLiveData[indexPath.item].Image,
                            rank: popularLiveData[indexPath.item].Rank,
                            channel: popularLiveData[indexPath.item].channel,
                            episode: popularLiveData[indexPath.item].episode,
                            rating: popularLiveData[indexPath.item].rating)
             return cell
+        case .popularMovie:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PopularMovieCell.identifier,
+                for: indexPath) as! PopularMovieCell
+            cell.configure(image: popularMovieData[indexPath.item].Image)
+            return cell
         }
-        
     }
     
     // 섹션별 헤더가 필요하다면 헤더 붙이기
@@ -265,6 +272,16 @@ extension TivingMainViewController: UICollectionViewDataSource {
                     for: indexPath
                 ) as! SeeMoreSectionHeader
                 header.configure(title: "실시간 인기 LIVE")
+                return header
+            }
+        case .popularMovie:
+            if kind == SeeMoreSectionHeader.elementKind {
+                let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: SeeMoreSectionHeader.identifier,
+                    for: indexPath
+                ) as! SeeMoreSectionHeader
+                header.configure(title: "실시간 인기 영화")
                 return header
             }
         }

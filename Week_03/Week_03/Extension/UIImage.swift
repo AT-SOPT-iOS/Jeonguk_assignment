@@ -23,6 +23,11 @@ enum ImageLiterals {
     static var tiving_Top20_Image3: UIImage { .load(name: "movie3") }
     static var tiving_Top20_Image4: UIImage { .load(name: "movie4") }
     
+    static var tiving_PopularLive_Image1: UIImage { .load(name: "Entertainment1") }
+    static var tiving_PopularLive_Image2: UIImage { .load(name: "Entertainment2") }
+    static var tiving_PopularLive_Image3: UIImage { .load(name: "Entertainment3") }
+    static var tiving_PopularLive_Image4: UIImage { .load(name: "Entertainment4") }
+
 }
 
 extension UIImage {

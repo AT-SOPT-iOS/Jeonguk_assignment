@@ -15,8 +15,8 @@ final class TivingTop20Cell: UICollectionViewCell {
     static let identifier = "TivingTop20Cell"
     
     // MARK: - UI Components
-    var Top20Rank = UILabel()
-    var Top20Image = UIImageView()
+    var top20Rank = UILabel()
+    var top20Image = UIImageView()
     
     // MARK: - Lifecycle
     
@@ -34,13 +34,13 @@ final class TivingTop20Cell: UICollectionViewCell {
     // MARK: - SetUI
     
     private func setUI() {
-        contentView.addSubviews(Top20Rank, Top20Image)
+        contentView.addSubviews(top20Rank, top20Image)
     }
     
     // MARK: - SetStyle
     
     private func setStyle() {
-        Top20Rank.do {
+        top20Rank.do {
             $0.font = .boldItalicSystemFont(ofSize: 50)
             $0.textColor = .white
         }
@@ -50,13 +50,13 @@ final class TivingTop20Cell: UICollectionViewCell {
     
     private func setLayout() {
         
-        Top20Rank.snp.makeConstraints {
+        top20Rank.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.bottom.equalTo(Top20Image.snp.bottom)
+            $0.bottom.equalTo(top20Image.snp.bottom)
         }
         
-        Top20Image.snp.makeConstraints {
-            $0.leading.equalTo(Top20Rank.snp.trailing).offset(3)
+        top20Image.snp.makeConstraints {
+            $0.leading.equalTo(top20Rank.snp.trailing).offset(3)
             $0.top.trailing.equalToSuperview()
             $0.width.equalTo(98)
             $0.height.equalTo(146) // 고정 높이 또는 레이아웃에서 estimated 높이일 경우 자동 설정
@@ -66,7 +66,7 @@ final class TivingTop20Cell: UICollectionViewCell {
 
 extension TivingTop20Cell {
     func configure(rank: String, image: UIImage?) {
-        Top20Rank.text = rank
-        Top20Image.image = image
+        top20Rank.text = rank
+        top20Image.image = image
     }
 }

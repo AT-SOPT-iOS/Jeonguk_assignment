@@ -29,8 +29,8 @@ final class SectionHeaderView: UICollectionReusableView {
         titleLabel.textColor = .white
         
         addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+        titleLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
 
     }

@@ -8,7 +8,11 @@
 import UIKit
 
 enum ImageLiterals {
-   
+
+    static var tiving_MainImage: UIImage { .load(name: "TvingMain") }
+    static var tiving_MainIcon: UIImage { .load(name: "TvingIcon") }
+    static var tiving_SearchIcon: UIImage { .load(name: "Search") }
+    
     static var tiving_Benner1: UIImage { .load(name: "Benner1") }
     static var tiving_Benner2: UIImage { .load(name: "Benner2") }
     static var tiving_Benner3: UIImage { .load(name: "Benner3") }

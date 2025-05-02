@@ -21,11 +21,13 @@ final class TivingMainViewController: UIViewController {
     
     // MARK: - UI Components
     
-    lazy var tabCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private var TvingMainImage = UIImageView()
+    private var TvingSerchButton = UIButton()
+    private var TvingMainIcon = UIImageView()
     
-    // MARK: - UI Components
+    private lazy var tabCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    lazy var collectionView = UICollectionView(
+    private lazy var collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: self.createCompositionalLayout()
     )
@@ -43,6 +45,18 @@ final class TivingMainViewController: UIViewController {
     
     private func setStyle() {
         view.backgroundColor = .black
+        
+        TvingMainImage.do {
+            $0.image = ImageLiterals.tiving_MainImage
+        }
+        
+        TvingSerchButton.do {
+            $0.setImage(ImageLiterals.tiving_SearchIcon, for: .normal)
+        }
+        
+        TvingMainIcon.do {
+            $0.image = ImageLiterals.tiving_MainIcon
+        }
         
         tabCollectionView.do {
             let layout = UICollectionViewFlowLayout()
@@ -72,15 +86,33 @@ final class TivingMainViewController: UIViewController {
     // MARK: - SetUI
     
     private func setUI() {
-        view.addSubviews(tabCollectionView,collectionView)
+        view.addSubviews(TvingMainImage, TvingSerchButton, TvingMainIcon, tabCollectionView, collectionView)
     }
     
     // MARK: - SetLayout
     
     private func setLayout() {
         
+        TvingMainImage.snp.makeConstraints {
+            $0.top.leading.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(78)
+            $0.width.equalTo(191)
+        }
+        
+        TvingMainIcon.snp.makeConstraints {
+            $0.centerY.equalTo(TvingMainImage)
+            $0.trailing.equalToSuperview().inset(11)
+            $0.height.width.equalTo(30)
+        }
+        
+        TvingSerchButton.snp.makeConstraints {
+            $0.centerY.equalTo(TvingMainImage)
+            $0.trailing.equalTo(TvingMainIcon.snp.leading).offset(-10)
+            $0.height.width.equalTo(30)
+        }
+        
         tabCollectionView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(TvingMainImage.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(44)
         }

@@ -24,6 +24,7 @@
 		2FE19F0B2DC3A1C900531A34 /* TivingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19EF92DC3A1C900531A34 /* TivingMainViewController.swift */; };
 		2FE19F0D2DC3A26500531A34 /* Top20Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F0C2DC3A26500531A34 /* Top20Model.swift */; };
 		2FE19F0F2DC3B03600531A34 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F0E2DC3B03600531A34 /* UILabel.swift */; };
+		2FE19F112DC4A1C300531A34 /* TabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F102DC4A1C300531A34 /* TabBarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		2FE19EFC2DC3A1C900531A34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FE19F0C2DC3A26500531A34 /* Top20Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top20Model.swift; sourceTree = "<group>"; };
 		2FE19F0E2DC3B03600531A34 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		2FE19F102DC4A1C300531A34 /* TabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				2FE19EF32DC3A1C900531A34 /* BannerCell.swift */,
 				2FE19EF42DC3A1C900531A34 /* SectionHeaderView.swift */,
 				2FE19EF52DC3A1C900531A34 /* TivingTop20Cell.swift */,
+				2FE19F102DC4A1C300531A34 /* TabBarCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				2FE19F0D2DC3A26500531A34 /* Top20Model.swift in Sources */,
 				2FE19F062DC3A1C900531A34 /* UIView.swift in Sources */,
 				2FE19F072DC3A1C900531A34 /* BannerCell.swift in Sources */,
+				2FE19F112DC4A1C300531A34 /* TabBarCell.swift in Sources */,
 				2FE19F082DC3A1C900531A34 /* SectionHeaderView.swift in Sources */,
 				2FE19F092DC3A1C900531A34 /* TivingTop20Cell.swift in Sources */,
 				2FE19F0A2DC3A1C900531A34 /* CompositionalLayoutFactory.swift in Sources */,

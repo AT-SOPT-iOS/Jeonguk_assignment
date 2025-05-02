@@ -11,33 +11,51 @@ import SnapKit
 import Then
 
 final class TivingMainViewController: UIViewController {
-
+    
     // MARK: - Properties
-
+    
     private let bannerData = [ImageLiterals.tiving_Benner1, ImageLiterals.tiving_Benner2, ImageLiterals.tiving_Benner3]
     private let top20Data = Top20Model.mockData()
-
-
+    private let tabBarItems = ["홈", "드라마", "예능", "영화", "스포츠", "뉴스"]
+    private var selectedTabIndex = 0
+    
     // MARK: - UI Components
-
+    
+    lazy var tabCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    // MARK: - UI Components
+    
     lazy var collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: self.createCompositionalLayout()
     )
-
+    
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
         setUI()
         setLayout()
     }
-
+    
     // MARK: - SetStyle
-
+    
     private func setStyle() {
         view.backgroundColor = .black
+        
+        tabCollectionView.do {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.minimumInteritemSpacing = 28
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+            $0.collectionViewLayout = layout
+            $0.showsHorizontalScrollIndicator = false
+            $0.backgroundColor = .black
+            $0.dataSource = self
+            $0.delegate = self
+            $0.register(TabBarCell.self, forCellWithReuseIdentifier: TabBarCell.identifier)
+        }
         
         collectionView.do {
             $0.backgroundColor = .black
@@ -50,53 +68,101 @@ final class TivingMainViewController: UIViewController {
         }
         
     }
-
+    
     // MARK: - SetUI
-
+    
     private func setUI() {
-        view.addSubview(collectionView)
+        view.addSubviews(tabCollectionView,collectionView)
     }
-
+    
     // MARK: - SetLayout
-
+    
     private func setLayout() {
+        
+        tabCollectionView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(44)
+        }
+        
         collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(tabCollectionView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
-
-    // MARK: - Layout Configuration
-
+    
     // MARK: - Layout Configuration
     private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return CompositionalLayoutFactory.create()
     }
+    
+}
 
+
+// MARK: - UICollectionViewDelegateFlowLayout : Tabber 관련
+
+extension TivingMainViewController: UICollectionViewDelegateFlowLayout {
+    
+    // 탭 항목 하나의 사이즈를 계산
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == tabCollectionView {
+            let text = tabBarItems[indexPath.item]
+            let width = text.size(withAttributes: [.font: UIFont.systemFont(ofSize: 17)]).width + 20 // 여백 20pt를 더해서 동적으로 너비를 지정
+            return CGSize(width: width, height: 34)
+        }
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == tabCollectionView {
+            selectedTabIndex = indexPath.item
+            tabCollectionView.reloadData()
+            // 실제 콘텐츠 교체 로직은 이후 구성
+        }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
 
 extension TivingMainViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return HomeSectionType.allCases.count  // 몇개의 섹션이 존재하는지 반환
+        
+        if collectionView == tabCollectionView {
+            return 1 // 탭바는 섹션이 하나뿐
+        }
+        return HomeSectionType.allCases.count // 컴포지셔널은 여러개의 섹션
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == tabCollectionView {
+            return tabBarItems.count
+        }
+        
         guard let sectionType = HomeSectionType(rawValue: section) else { return 0 }
         switch sectionType {
-        case .banner:
-            return bannerData.count
-        case .toDayTivingTop20:
-            return top20Data.count
+        case .banner: return bannerData.count
+        case .toDayTivingTop20: return top20Data.count
         }
     }
     
+    
     // cell 등록및 데이터 바인딩
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == tabCollectionView {
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: TabBarCell.identifier,
+                for: indexPath
+            ) as! TabBarCell
+            let title = tabBarItems[indexPath.item]
+            let isSelected = (indexPath.item == selectedTabIndex)
+            cell.configure(title: title, isSelected: isSelected)
+            return cell
+        }
+        
         guard let sectionType = HomeSectionType(rawValue: indexPath.section) else {
             return UICollectionViewCell()
         }
-
+        
         switch sectionType {
         case .banner:
             let cell = collectionView.dequeueReusableCell(
@@ -112,29 +178,34 @@ extension TivingMainViewController: UICollectionViewDataSource {
             return cell
         }
     }
-
+    
     // 섹션별 헤더가 필요하다면 헤더 붙이기
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if collectionView == tabCollectionView {
+            return UICollectionReusableView()
+        }
+        
         guard kind == SectionHeaderView.elementKind,
               let sectionType = HomeSectionType(rawValue: indexPath.section) else {
             return UICollectionReusableView()
         }
-
+        
         let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: SectionHeaderView.identifier,
             for: indexPath
         ) as! SectionHeaderView
-
+        
         switch sectionType {
         case .banner:
             break
         case .toDayTivingTop20:
             header.configure(title: "오늘의 티빙 TOP 20")
         }
-
+        
         return header
     }
 }

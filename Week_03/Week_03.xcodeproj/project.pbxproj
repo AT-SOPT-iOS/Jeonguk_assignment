@@ -31,6 +31,7 @@
 		2FE19F212DC4EED600531A34 /* TvingMainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F1D2DC4EED600531A34 /* TvingMainHeaderView.swift */; };
 		2FE19F232DC4EF0600531A34 /* PopularMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F222DC4EF0600531A34 /* PopularMovieCell.swift */; };
 		2FE19F252DC4F19800531A34 /* PopularMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F242DC4F19800531A34 /* PopularMovieModel.swift */; };
+		2FE19F442DC4FC5100531A34 /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE19F432DC4FC5100531A34 /* NoticeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		2FE19F1D2DC4EED600531A34 /* TvingMainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingMainHeaderView.swift; sourceTree = "<group>"; };
 		2FE19F222DC4EF0600531A34 /* PopularMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCell.swift; sourceTree = "<group>"; };
 		2FE19F242DC4F19800531A34 /* PopularMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieModel.swift; sourceTree = "<group>"; };
+		2FE19F432DC4FC5100531A34 /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				2FE19F102DC4A1C300531A34 /* TabBarCell.swift */,
 				2FE19F142DC4B08900531A34 /* PopularLiveCell.swift */,
 				2FE19F222DC4EF0600531A34 /* PopularMovieCell.swift */,
+				2FE19F432DC4FC5100531A34 /* NoticeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				2FE19F022DC3A1C900531A34 /* SceneDelegate.swift in Sources */,
 				2FE19F1F2DC4EED600531A34 /* SectionHeaderView.swift in Sources */,
 				2FE19F202DC4EED600531A34 /* SeeMoreSectionHeader.swift in Sources */,
+				2FE19F442DC4FC5100531A34 /* NoticeCell.swift in Sources */,
 				2FE19F212DC4EED600531A34 /* TvingMainHeaderView.swift in Sources */,
 				2FE19F152DC4B08900531A34 /* PopularLiveCell.swift in Sources */,
 				2FE19F032DC3A1C900531A34 /* UIColor.swift in Sources */,

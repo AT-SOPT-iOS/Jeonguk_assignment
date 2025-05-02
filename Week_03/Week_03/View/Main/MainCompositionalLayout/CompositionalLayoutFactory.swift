@@ -10,6 +10,7 @@ import UIKit
 enum HomeSectionType: Int, CaseIterable {
     case banner = 0
     case toDayTivingTop20
+    case popularLive
 }
 
 struct CompositionalLayoutFactory {
@@ -23,6 +24,8 @@ struct CompositionalLayoutFactory {
                 section = makeBannerSection()
             case .toDayTivingTop20:
                 section = makeTop20Section()
+            case .popularLive:
+                section = makePopularLiveSection()
             case .none:
                 section = makeTop20Section()
             }
@@ -74,7 +77,7 @@ struct CompositionalLayoutFactory {
 
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 20, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 18, trailing: 10)
         /*
          top: 12 → 위쪽 여백 확보 (섹션 헤더와 분리)
 
@@ -97,6 +100,46 @@ struct CompositionalLayoutFactory {
         )
 
         section.boundarySupplementaryItems = [header] // header를 해당 섹션의 헤더로 연결해주는 역할, 배열인 이유는 풋터도 들어갈 수 있기 때문
+        
+        return section
+    }
+    
+    private static func makePopularLiveSection() -> NSCollectionLayoutSection {
+        
+        // 아이템 사이즈
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(167),
+            heightDimension: .estimated(110)) // estimated 자동 cell 높이 지정
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 7)
+
+        // 그룹사이즈
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(334),
+            heightDimension: .estimated(110))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 18, trailing: 10)
+      
+        
+        // 4️⃣ 헤더 사이즈 및 SupplementaryItem 설정
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(23)                // 헤더 높이 고정
+        )
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: SeeMoreSectionHeader.elementKind,
+            alignment: .top
+        )
+
+        section.boundarySupplementaryItems = [header] 
         
         return section
     }

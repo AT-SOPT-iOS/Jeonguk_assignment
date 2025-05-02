@@ -14,10 +14,11 @@ final class TivingMainViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let bannerData = [ImageLiterals.tiving_Benner1, ImageLiterals.tiving_Benner2, ImageLiterals.tiving_Benner3]
-    private let top20Data = Top20Model.mockData()
     private let tabBarItems = ["홈", "드라마", "예능", "영화", "스포츠", "뉴스"]
     private var selectedTabIndex = 0
+    private let bannerData = [ImageLiterals.tiving_Benner1, ImageLiterals.tiving_Benner2, ImageLiterals.tiving_Benner3]
+    private let top20Data = Top20Model.mockData()
+    private let popularLiveData = PopularLiveModel.mockData()
     
     // MARK: - UI Components
     
@@ -79,6 +80,10 @@ final class TivingMainViewController: UIViewController {
             $0.register(SectionHeaderView.self,
                         forSupplementaryViewOfKind: SectionHeaderView.elementKind,
                         withReuseIdentifier: SectionHeaderView.identifier)
+            $0.register(PopularLiveCell.self, forCellWithReuseIdentifier: PopularLiveCell.identifier)
+            $0.register(SeeMoreSectionHeader.self,
+                        forSupplementaryViewOfKind: SeeMoreSectionHeader.elementKind,
+                        withReuseIdentifier: SeeMoreSectionHeader.identifier)
         }
         
     }
@@ -174,6 +179,7 @@ extension TivingMainViewController: UICollectionViewDataSource {
         switch sectionType {
         case .banner: return bannerData.count
         case .toDayTivingTop20: return top20Data.count
+        case .popularLive: return popularLiveData.count
         }
     }
     
@@ -206,9 +212,21 @@ extension TivingMainViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: TivingTop20Cell.identifier,
                 for: indexPath) as! TivingTop20Cell
-            cell.configure(rank: top20Data[indexPath.item].Top20Rank, image: top20Data[indexPath.item].Top20Image)
+            cell.configure(rank: top20Data[indexPath.item].top20Rank, image: top20Data[indexPath.item].top20Image)
+            return cell
+        case .popularLive:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PopularLiveCell.identifier,
+                for: indexPath) as! PopularLiveCell
+            //cell.configure(rank: top20Data[indexPath.item].Top20Rank, image: top20Data[indexPath.item].Top20Image)
+            cell.configure(image: popularLiveData[indexPath.item].Image,
+                           rank: popularLiveData[indexPath.item].Rank,
+                           channel: popularLiveData[indexPath.item].channel,
+                           episode: popularLiveData[indexPath.item].episode,
+                           rating: popularLiveData[indexPath.item].rating)
             return cell
         }
+        
     }
     
     // 섹션별 헤더가 필요하다면 헤더 붙이기
@@ -220,25 +238,37 @@ extension TivingMainViewController: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
         
-        guard kind == SectionHeaderView.elementKind,
-              let sectionType = HomeSectionType(rawValue: indexPath.section) else {
+        guard let sectionType = HomeSectionType(rawValue: indexPath.section) else {
             return UICollectionReusableView()
         }
         
-        let header = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: SectionHeaderView.identifier,
-            for: indexPath
-        ) as! SectionHeaderView
-        
         switch sectionType {
         case .banner:
-            break
+            return UICollectionReusableView()
+            
         case .toDayTivingTop20:
-            header.configure(title: "오늘의 티빙 TOP 20")
+            if kind == SectionHeaderView.elementKind {
+                let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: SectionHeaderView.identifier,
+                    for: indexPath
+                ) as! SectionHeaderView
+                header.configure(title: "오늘의 티빙 TOP 20")
+                return header
+            }
+            
+        case .popularLive:
+            if kind == SeeMoreSectionHeader.elementKind {
+                let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: SeeMoreSectionHeader.identifier,
+                    for: indexPath
+                ) as! SeeMoreSectionHeader
+                header.configure(title: "실시간 인기 LIVE")
+                return header
+            }
         }
-        
-        return header
+        return UICollectionReusableView()
     }
 }
 

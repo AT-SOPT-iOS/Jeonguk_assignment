@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2F5B85802DCCB86700C3ABF6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F5B857F2DCCB86700C3ABF6 /* SnapKit */; };
-		2F5B85822DCCB86700C3ABF6 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 2F5B85812DCCB86700C3ABF6 /* SnapKit-Dynamic */; };
 		2F5B85852DCCB87600C3ABF6 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2F5B85842DCCB87600C3ABF6 /* Then */; };
 		2F5B85882DCCB88900C3ABF6 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 2F5B85872DCCB88900C3ABF6 /* SwiftKeychainWrapper */; };
 /* End PBXBuildFile section */
@@ -46,7 +45,6 @@
 				2F5B85802DCCB86700C3ABF6 /* SnapKit in Frameworks */,
 				2F5B85852DCCB87600C3ABF6 /* Then in Frameworks */,
 				2F5B85882DCCB88900C3ABF6 /* SwiftKeychainWrapper in Frameworks */,
-				2F5B85822DCCB86700C3ABF6 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +88,6 @@
 			name = Week_04;
 			packageProductDependencies = (
 				2F5B857F2DCCB86700C3ABF6 /* SnapKit */,
-				2F5B85812DCCB86700C3ABF6 /* SnapKit-Dynamic */,
 				2F5B85842DCCB87600C3ABF6 /* Then */,
 				2F5B85872DCCB88900C3ABF6 /* SwiftKeychainWrapper */,
 			);
@@ -396,11 +393,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F5B857E2DCCB86700C3ABF6 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		2F5B85812DCCB86700C3ABF6 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F5B857E2DCCB86700C3ABF6 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 		2F5B85842DCCB87600C3ABF6 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;

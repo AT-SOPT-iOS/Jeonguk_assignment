@@ -10,51 +10,46 @@ import Foundation
 final class APIService {
     static let shared = APIService()
     private init() {}
-    
-    private let baseURL = "http://api.atsopt-seminar4.site"
-    
+
+    private let baseURL = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json"
+    private let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
+
+
     func request<T: Decodable>(
-        path: String,
-        method: HTTPMethod,
-        headers: [String : String]? = nil,
-        body: Data? = nil,
+        queryItems: [URLQueryItem],
         responseType: T.Type
     ) async throws -> T {
-        guard let url = URL(string: baseURL + path) else {
+        
+        print("BASE_URL: \(baseURL)")
+        print("API_KEY: \(apiKey)")
+        
+        guard var urlComponents = URLComponents(string: baseURL) else {
             throw NetworkError.invalidURL
         }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        if let headers {
-            for (key, value) in headers {
-                request.setValue(value, forHTTPHeaderField: key)
-            }
+
+        var fullQueryItems = queryItems
+        fullQueryItems.insert(URLQueryItem(name: "key", value: apiKey), at: 0)
+        urlComponents.queryItems = fullQueryItems
+
+        guard let url = urlComponents.url else {
+            throw NetworkError.invalidURL
         }
-        
-        request.httpBody = body
-        
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
         let (data, response) = try await URLSession.shared.data(for: request)
 
-        guard let httpResponse = response as? HTTPURLResponse else {
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
             throw NetworkError.responseError
         }
 
-        guard (200...299).contains(httpResponse.statusCode) else {
-            throw configureHTTPError(errorCode: httpResponse.statusCode)
-        }
-        
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
             throw NetworkError.responseDecodingError
         }
-    }
-    
-    private func configureHTTPError(errorCode: Int) -> Error {
-        return NetworkError(rawValue: errorCode)
-        ?? NetworkError.unknownError
     }
 }

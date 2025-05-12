@@ -12,6 +12,7 @@ enum HomeSectionType: Int, CaseIterable {
     case toDayTivingTop20
     case popularLive
     case popularMovie
+    case boxOffice
     case notice
 }
 
@@ -30,6 +31,8 @@ struct CompositionalLayoutFactory {
                 section = makePopularLiveSection()
             case .popularMovie:
                 section = makePopularMovieSection()
+            case .boxOffice:
+                section = makeboxOfficeSection()
             case .notice:
                 section = makeNoticeSection()
             case .none:
@@ -177,6 +180,46 @@ struct CompositionalLayoutFactory {
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(23)                // 헤더 높이 고정
+        )
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: SeeMoreSectionHeader.elementKind,
+            alignment: .top
+        )
+
+        section.boundarySupplementaryItems = [header]
+        
+        return section
+    }
+    
+    private static func makeboxOfficeSection() -> NSCollectionLayoutSection {
+        
+        // 아이템 사이즈
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(140),
+            heightDimension: .absolute(100))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8)
+
+        // 그룹사이즈
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(150),
+            heightDimension: .estimated(100))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 10, bottom: 23, trailing: 10)
+      
+        
+        // 헤더 사이즈 및 SupplementaryItem 설정
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(23)                
         )
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(

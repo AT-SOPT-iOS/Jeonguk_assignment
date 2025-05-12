@@ -20,6 +20,7 @@ final class TivingMainViewController: UIViewController {
     private let top20Data = Top20Model.mockData()
     private let popularLiveData = PopularLiveModel.mockData()
     private let popularMovieData = PopularMovieModel.mockData()
+    private var boxOfficeData: [DailyBoxOfficeList] = []
     
     // MARK: - UI Components
     
@@ -41,8 +42,32 @@ final class TivingMainViewController: UIViewController {
         setStyle()
         setUI()
         setLayout()
+        
+        Task {
+            await apiCall()
+        }
     }
     
+    func apiCall() async {
+        do {
+            let result = try await APIService.shared.request(
+                queryItems: [
+                    URLQueryItem(name: "targetDt", value: "20250508")
+                ],
+                responseType: BoxOfficeResponse.self
+            )
+            print("영화 데이터: \(result.boxOfficeResult.dailyBoxOfficeList)")
+            boxOfficeData = result.boxOfficeResult.dailyBoxOfficeList
+            
+            // 🔥 여기 추가
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        } catch {
+            print("🚨 API 호출 실패: \(error.localizedDescription)")
+        }
+    }
+
     // MARK: - SetStyle
     
     private func setStyle() {
@@ -80,6 +105,7 @@ final class TivingMainViewController: UIViewController {
             $0.register(TivingTop20Cell.self, forCellWithReuseIdentifier: TivingTop20Cell.identifier)
             $0.register(PopularLiveCell.self, forCellWithReuseIdentifier: PopularLiveCell.identifier)
             $0.register(PopularMovieCell.self, forCellWithReuseIdentifier: PopularMovieCell.identifier)
+            $0.register(BoxOfficeMovieCell.self, forCellWithReuseIdentifier: BoxOfficeMovieCell.identifier)
             $0.register(SectionHeaderView.self,
                         forSupplementaryViewOfKind: SectionHeaderView.elementKind,
                         withReuseIdentifier: SectionHeaderView.identifier)
@@ -184,6 +210,7 @@ extension TivingMainViewController: UICollectionViewDataSource {
         case .toDayTivingTop20: return top20Data.count
         case .popularLive: return popularLiveData.count
         case .popularMovie: return popularMovieData.count
+        case .boxOffice: return boxOfficeData.count
         case .notice: return 1
         }
     }
@@ -234,6 +261,14 @@ extension TivingMainViewController: UICollectionViewDataSource {
                 withReuseIdentifier: PopularMovieCell.identifier,
                 for: indexPath) as! PopularMovieCell
             cell.configure(image: popularMovieData[indexPath.item].Image)
+            return cell
+        case .boxOffice:
+            print("cellForItemAt: \(indexPath.item)")
+            print("데이터: \(boxOfficeData[indexPath.item])")
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BoxOfficeMovieCell.identifier,
+                for: indexPath) as! BoxOfficeMovieCell
+            cell.configure(model: boxOfficeData[indexPath.item])
             return cell
         case .notice:
             let cell = collectionView.dequeueReusableCell(
@@ -292,7 +327,16 @@ extension TivingMainViewController: UICollectionViewDataSource {
                 header.configure(title: "실시간 인기 영화")
                 return header
             }
-            
+        case .boxOffice:
+            if kind == SeeMoreSectionHeader.elementKind {
+                let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: SeeMoreSectionHeader.identifier,
+                    for: indexPath
+                ) as! SeeMoreSectionHeader
+                header.configure(title: "boxOffice 정보 보기")
+                return header
+            }
         case .notice:
             return UICollectionReusableView()
         }

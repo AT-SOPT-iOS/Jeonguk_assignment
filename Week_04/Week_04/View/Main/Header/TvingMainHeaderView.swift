@@ -13,8 +13,8 @@ import Then
 
 final class TvingMainHeaderView: UICollectionReusableView {
     
-    static let identifier = "TvingMainHeaderView"
-    static let elementKind = "TvingMainHeaderView"
+    static let elementKind = "\(TvingMainHeaderView.className)-element-kind"
+    static let identifier = TvingMainHeaderView.className
 
     private let logoImageView = UIImageView()
     private let searchButton = UIButton()

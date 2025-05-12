@@ -12,7 +12,7 @@ final class BannerCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "BannerCell"
+    static let identifier = BannerCell.className
     
     // MARK: - UI Components
     var bannerImage = UIImageView()

@@ -12,7 +12,7 @@ final class PopularMovieCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "PopularMovieCell"
+    static let identifier = PopularMovieCell.className
     
     // MARK: - UI Components
     var movieImage = UIImageView()

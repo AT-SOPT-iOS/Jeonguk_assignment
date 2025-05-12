@@ -10,8 +10,8 @@ import SnapKit
 
 final class SectionHeaderView: UICollectionReusableView {
     
-    static let elementKind = "section-header-element-kind" // CompositionalLayout 등록 시 필요
-    static let identifier = "SectionHeaderView"            // reuseIdentifier
+    static let elementKind = "\(SectionHeaderView.className)-element-kind"
+    static let identifier = SectionHeaderView.className
     
     private let titleLabel = UILabel()
     

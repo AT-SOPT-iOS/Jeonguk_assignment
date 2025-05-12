@@ -12,7 +12,7 @@ import Then
 final class TabBarCell: UICollectionViewCell {
     
     // MARK: - Properties
-    static let identifier = "TabBarCell"
+    static let identifier = TabBarCell.className
     
     // MARK: - UI Components
     private let titleLabel = UILabel()

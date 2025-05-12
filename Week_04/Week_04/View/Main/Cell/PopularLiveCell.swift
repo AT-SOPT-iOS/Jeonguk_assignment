@@ -12,7 +12,7 @@ final class PopularLiveCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "PopularLiveCell"
+    static let identifier = PopularLiveCell.className
     
     // MARK: - UI Components
     

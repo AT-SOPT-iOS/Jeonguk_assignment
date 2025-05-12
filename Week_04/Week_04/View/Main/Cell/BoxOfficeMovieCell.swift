@@ -5,7 +5,7 @@ final class BoxOfficeMovieCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "BoxOfficeMovieCell"
+    static let identifier = BoxOfficeMovieCell.className
     
     // MARK: - UI Components
     

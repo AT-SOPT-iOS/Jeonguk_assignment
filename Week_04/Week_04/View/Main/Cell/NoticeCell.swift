@@ -12,7 +12,7 @@ import Then
 final class NoticeCell: UICollectionViewCell {
     
     // MARK: - Properties
-    static let identifier = "NoticeCell"
+    static let identifier = NoticeCell.className
     
     // MARK: - UI Components
     private let noticeLabel = UILabel()

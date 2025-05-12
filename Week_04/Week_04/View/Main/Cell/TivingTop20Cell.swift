@@ -12,7 +12,7 @@ final class TivingTop20Cell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    static let identifier = "TivingTop20Cell"
+    static let identifier = TivingTop20Cell.className
     
     // MARK: - UI Components
     var top20Rank = UILabel()

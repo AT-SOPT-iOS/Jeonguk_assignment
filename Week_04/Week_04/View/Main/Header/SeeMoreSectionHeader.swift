@@ -10,8 +10,8 @@ import SnapKit
 
 final class SeeMoreSectionHeader: UICollectionReusableView {
     
-    static let elementKind = "SeeMoreSection-header-element-kind"
-    static let identifier = "SeeMoreSectionHeaderView"
+    static let elementKind = "\(SeeMoreSectionHeader.className)-element-kind"
+    static let identifier = SeeMoreSectionHeader.className
     
     private let titleLabel = UILabel()
     private let seeMoreButton = UIButton()

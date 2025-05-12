@@ -56,10 +56,8 @@ final class TivingMainViewController: UIViewController {
                 ],
                 responseType: BoxOfficeResponse.self
             )
-            print("영화 데이터: \(result.boxOfficeResult.dailyBoxOfficeList)")
             boxOfficeData = result.boxOfficeResult.dailyBoxOfficeList
             
-            // 🔥 여기 추가
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -263,8 +261,6 @@ extension TivingMainViewController: UICollectionViewDataSource {
             cell.configure(image: popularMovieData[indexPath.item].Image)
             return cell
         case .boxOffice:
-            print("cellForItemAt: \(indexPath.item)")
-            print("데이터: \(boxOfficeData[indexPath.item])")
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: BoxOfficeMovieCell.identifier,
                 for: indexPath) as! BoxOfficeMovieCell

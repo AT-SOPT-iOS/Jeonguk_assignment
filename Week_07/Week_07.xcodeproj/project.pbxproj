@@ -10,6 +10,7 @@
 		2F2E50CF2DE5E4E40099CE70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E50CC2DE5E4E40099CE70 /* ContentView.swift */; };
 		2F2E50D02DE5E4E40099CE70 /* Week_07App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E50CD2DE5E4E40099CE70 /* Week_07App.swift */; };
 		2F2E50E42DE5E5A10099CE70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E50E12DE5E5A10099CE70 /* Assets.xcassets */; };
+		2F2E50ED2DE5E8D90099CE70 /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E50EC2DE5E8D90099CE70 /* ImageLiterals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,7 @@
 		2F2E50CC2DE5E4E40099CE70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2F2E50CD2DE5E4E40099CE70 /* Week_07App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week_07App.swift; sourceTree = "<group>"; };
 		2F2E50E12DE5E5A10099CE70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F2E50EC2DE5E8D90099CE70 /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		2F2E50E92DE5E7B00099CE70 /* Literals */ = {
 			isa = PBXGroup;
 			children = (
+				2F2E50EC2DE5E8D90099CE70 /* ImageLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F2E50CF2DE5E4E40099CE70 /* ContentView.swift in Sources */,
+				2F2E50ED2DE5E8D90099CE70 /* ImageLiterals.swift in Sources */,
 				2F2E50D02DE5E4E40099CE70 /* Week_07App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

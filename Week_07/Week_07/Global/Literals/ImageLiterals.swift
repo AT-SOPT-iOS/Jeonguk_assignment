@@ -50,6 +50,10 @@ enum ImageLiterals {
     static var signal: UIImage { .load(name: "signal") }
     static var suzume: UIImage { .load(name: "suzume") }
     static var theRoadOfTheRings: UIImage { .load(name: "theRoadOfTheRings") }
+    
+    //MARK: ETC
+    
+    static var search: UIImage { .load(name: "SearchIamge") }
 }
 
 extension UIImage {

@@ -7,19 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F2E50CF2DE5E4E40099CE70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E50CC2DE5E4E40099CE70 /* ContentView.swift */; };
+		2F2E50CF2DE5E4E40099CE70 /* TvingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E50CC2DE5E4E40099CE70 /* TvingMainView.swift */; };
 		2F2E50D02DE5E4E40099CE70 /* Week_07App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E50CD2DE5E4E40099CE70 /* Week_07App.swift */; };
 		2F2E50E42DE5E5A10099CE70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E50E12DE5E5A10099CE70 /* Assets.xcassets */; };
 		2F2E50ED2DE5E8D90099CE70 /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E50EC2DE5E8D90099CE70 /* ImageLiterals.swift */; };
+		2F3059AF2DE5F21700C537FB /* PopularMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3059AD2DE5F21700C537FB /* PopularMovieModel.swift */; };
+		2F3059B02DE5F21700C537FB /* Top20Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3059AE2DE5F21700C537FB /* Top20Model.swift */; };
+		2F3059B12DE5F21700C537FB /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3059AC2DE5F21700C537FB /* BannerModel.swift */; };
+		2F3059B32DE5FBC900C537FB /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3059B22DE5FBC900C537FB /* Font+.swift */; };
+		2F3059BB2DE5FBE800C537FB /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3059B82DE5FBE800C537FB /* Pretendard-Light.otf */; };
+		2F3059BC2DE5FBE800C537FB /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3059B42DE5FBE800C537FB /* Pretendard-Black.otf */; };
+		2F3059BD2DE5FBE800C537FB /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3059B72DE5FBE800C537FB /* Pretendard-ExtraLight.otf */; };
+		2F3059BE2DE5FBE800C537FB /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3059B62DE5FBE800C537FB /* Pretendard-ExtraBold.otf */; };
+		2F3059BF2DE5FBE800C537FB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3059B92DE5FBE800C537FB /* Pretendard-Medium.otf */; };
+		2F3059C02DE5FBE800C537FB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3059B52DE5FBE800C537FB /* Pretendard-Bold.otf */; };
+		2F3059C32DE6003D00C537FB /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3059C22DE6003D00C537FB /* Color+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F2E50BD2DE5E04C0099CE70 /* Week_07.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Week_07.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F2E50CC2DE5E4E40099CE70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2F2E50CC2DE5E4E40099CE70 /* TvingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvingMainView.swift; sourceTree = "<group>"; };
 		2F2E50CD2DE5E4E40099CE70 /* Week_07App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week_07App.swift; sourceTree = "<group>"; };
 		2F2E50E12DE5E5A10099CE70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F2E50EC2DE5E8D90099CE70 /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
+		2F3059AC2DE5F21700C537FB /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
+		2F3059AD2DE5F21700C537FB /* PopularMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieModel.swift; sourceTree = "<group>"; };
+		2F3059AE2DE5F21700C537FB /* Top20Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top20Model.swift; sourceTree = "<group>"; };
+		2F3059B22DE5FBC900C537FB /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
+		2F3059B42DE5FBE800C537FB /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		2F3059B52DE5FBE800C537FB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		2F3059B62DE5FBE800C537FB /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		2F3059B72DE5FBE800C537FB /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		2F3059B82DE5FBE800C537FB /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		2F3059B92DE5FBE800C537FB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		2F3059C12DE5FD0600C537FB /* Week-07-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Week-07-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2F3059C22DE6003D00C537FB /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2F2E50EE2DE5E9790099CE70 /* SectionCell */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SectionCell;
+			sourceTree = "<group>";
+		};
+		2F305A122DE6A8ED00C537FB /* Header */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Header;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2F2E50BA2DE5E04C0099CE70 /* Frameworks */ = {
@@ -51,11 +87,12 @@
 		2F2E50CE2DE5E4E40099CE70 /* Week_07 */ = {
 			isa = PBXGroup;
 			children = (
+				2F3059C12DE5FD0600C537FB /* Week-07-Info.plist */,
+				2F2E50E52DE5E5AA0099CE70 /* App */,
+				2F2E50E32DE5E5A10099CE70 /* Global */,
 				2F2E50D82DE5E5840099CE70 /* ViewModel */,
 				2F2E50D92DE5E5870099CE70 /* Model */,
 				2F2E50DA2DE5E5910099CE70 /* View */,
-				2F2E50E32DE5E5A10099CE70 /* Global */,
-				2F2E50E52DE5E5AA0099CE70 /* App */,
 			);
 			path = Week_07;
 			sourceTree = "<group>";
@@ -70,6 +107,9 @@
 		2F2E50D92DE5E5870099CE70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2F3059AC2DE5F21700C537FB /* BannerModel.swift */,
+				2F3059AD2DE5F21700C537FB /* PopularMovieModel.swift */,
+				2F3059AE2DE5F21700C537FB /* Top20Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -77,6 +117,8 @@
 		2F2E50DA2DE5E5910099CE70 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2F305A122DE6A8ED00C537FB /* Header */,
+				2F2E50CC2DE5E4E40099CE70 /* TvingMainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -84,6 +126,7 @@
 		2F2E50E22DE5E5A10099CE70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2F3059BA2DE5FBE800C537FB /* Font */,
 				2F2E50E12DE5E5A10099CE70 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -103,8 +146,8 @@
 		2F2E50E52DE5E5AA0099CE70 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				2F2E50EE2DE5E9790099CE70 /* SectionCell */,
 				2F2E50CD2DE5E4E40099CE70 /* Week_07App.swift */,
-				2F2E50CC2DE5E4E40099CE70 /* ContentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -127,8 +170,23 @@
 		2F2E50EB2DE5E7B50099CE70 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2F3059B22DE5FBC900C537FB /* Font+.swift */,
+				2F3059C22DE6003D00C537FB /* Color+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		2F3059BA2DE5FBE800C537FB /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2F3059B42DE5FBE800C537FB /* Pretendard-Black.otf */,
+				2F3059B52DE5FBE800C537FB /* Pretendard-Bold.otf */,
+				2F3059B62DE5FBE800C537FB /* Pretendard-ExtraBold.otf */,
+				2F3059B72DE5FBE800C537FB /* Pretendard-ExtraLight.otf */,
+				2F3059B82DE5FBE800C537FB /* Pretendard-Light.otf */,
+				2F3059B92DE5FBE800C537FB /* Pretendard-Medium.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +203,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2F2E50EE2DE5E9790099CE70 /* SectionCell */,
+				2F305A122DE6A8ED00C537FB /* Header */,
 			);
 			name = Week_07;
 			packageProductDependencies = (
@@ -193,6 +255,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F2E50E42DE5E5A10099CE70 /* Assets.xcassets in Resources */,
+				2F3059BB2DE5FBE800C537FB /* Pretendard-Light.otf in Resources */,
+				2F3059BC2DE5FBE800C537FB /* Pretendard-Black.otf in Resources */,
+				2F3059BD2DE5FBE800C537FB /* Pretendard-ExtraLight.otf in Resources */,
+				2F3059BE2DE5FBE800C537FB /* Pretendard-ExtraBold.otf in Resources */,
+				2F3059BF2DE5FBE800C537FB /* Pretendard-Medium.otf in Resources */,
+				2F3059C02DE5FBE800C537FB /* Pretendard-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F2E50CF2DE5E4E40099CE70 /* ContentView.swift in Sources */,
+				2F3059AF2DE5F21700C537FB /* PopularMovieModel.swift in Sources */,
+				2F3059B02DE5F21700C537FB /* Top20Model.swift in Sources */,
+				2F3059B12DE5F21700C537FB /* BannerModel.swift in Sources */,
+				2F3059B32DE5FBC900C537FB /* Font+.swift in Sources */,
+				2F2E50CF2DE5E4E40099CE70 /* TvingMainView.swift in Sources */,
+				2F3059C32DE6003D00C537FB /* Color+.swift in Sources */,
 				2F2E50ED2DE5E8D90099CE70 /* ImageLiterals.swift in Sources */,
 				2F2E50D02DE5E4E40099CE70 /* Week_07App.swift in Sources */,
 			);
@@ -343,6 +416,7 @@
 				DEVELOPMENT_TEAM = 5KA6J79S24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Week-07-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -371,6 +445,7 @@
 				DEVELOPMENT_TEAM = 5KA6J79S24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Week-07-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

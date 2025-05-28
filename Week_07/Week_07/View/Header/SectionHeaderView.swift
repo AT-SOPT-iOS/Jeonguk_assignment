@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct SectionHeaderView: View {
+    var DisplayTitle: String = ""
     var moreButtonDisplayed: Bool = true
     
     var body: some View {
         HStack(alignment: .center) {
-            Text("오늘의 티빙 TOP 20")
+            Text(DisplayTitle)
                 .font(.header)
                 .bold()
                 .foregroundStyle(Color.white)
@@ -25,12 +26,11 @@ struct SectionHeaderView: View {
             }
         }
         .padding(.horizontal, 12)
-        .padding(.top, 9)
     }
 }
 
 #Preview {
-    SectionHeaderView(moreButtonDisplayed: false)
+    SectionHeaderView(DisplayTitle: "오늘의 티빙 TOP 20" ,moreButtonDisplayed: false)
         .background(Color.black)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black)

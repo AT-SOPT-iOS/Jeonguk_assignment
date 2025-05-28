@@ -10,6 +10,7 @@ import SwiftUI
 struct TvingMainView: View {
     let bannerModel = BannerModel.mockData()
     let top20Model = Top20Model.mockData()
+    let popularLiveModel = PopularLiveModel.mockData()
     
     var body: some View {
         ScrollView {
@@ -21,9 +22,9 @@ struct TvingMainView: View {
             BannerScrollView(bannerModel: bannerModel)
             
             //MARK: Top20 Section
-            
-            SectionHeaderView(moreButtonDisplayed: false)
             Top20ScrollView(top20Model: top20Model)
+            
+            PopularLiveScrollView(popularLiveModel: popularLiveModel)
         
         }
         .background(Color.black)
@@ -81,6 +82,9 @@ struct Top20ScrollView: View {
     let top20Model: [Top20Model]
     
     var body: some View {
+        SectionHeaderView(DisplayTitle: "오늘의 티빙 TOP 20" ,moreButtonDisplayed: false)
+            .padding(.top, 9)
+        
         ScrollView(.horizontal) {
             LazyHStack(spacing: 20) {
                 ForEach(top20Model, id: \.id) { data in
@@ -95,6 +99,53 @@ struct Top20ScrollView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 98, height: 146)
+                    }
+                }
+            }
+        }
+        .padding(.leading, 12)
+        .padding(.top, 9)
+    }
+}
+
+struct PopularLiveScrollView: View {
+    let popularLiveModel: [PopularLiveModel]
+    
+    var body: some View {
+        SectionHeaderView(DisplayTitle: "실시간 인기 LIVE")
+            .padding(.top, 9)
+        
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 7) {
+                ForEach(popularLiveModel, id: \.id) { data in
+                    VStack() {
+                        Image(uiImage: data.image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 160, height: 80)
+                        
+                        HStack(alignment: .top) {
+                            Text("\(data.rank)")
+                                .italic()
+                                .font(.system(size: 19, weight: .bold))
+                                .foregroundStyle(Color.white)
+                                .rotationEffect(.degrees(3))
+                            
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(data.channel)
+                                    .font(.system(size: 10))
+                                    .foregroundStyle(Color.white)
+                                Text(data.episode)
+                                    .font(.system(size: 10))
+                                    .foregroundStyle(Color.gray2)
+                                Text(data.rating)
+                                    .font(.system(size: 10))
+                                    .foregroundStyle(Color.gray2)
+                            }
+                            
+                            Spacer()
+                        }
+                        .padding(.top, 10)
                     }
                 }
             }

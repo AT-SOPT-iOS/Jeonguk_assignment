@@ -22,6 +22,7 @@
 		2F3059BF2DE5FBE800C537FB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3059B92DE5FBE800C537FB /* Pretendard-Medium.otf */; };
 		2F3059C02DE5FBE800C537FB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3059B52DE5FBE800C537FB /* Pretendard-Bold.otf */; };
 		2F3059C32DE6003D00C537FB /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3059C22DE6003D00C537FB /* Color+.swift */; };
+		2F305A172DE6B13500C537FB /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F305A152DE6B13500C537FB /* SectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,20 +43,8 @@
 		2F3059B92DE5FBE800C537FB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		2F3059C12DE5FD0600C537FB /* Week-07-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Week-07-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2F3059C22DE6003D00C537FB /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		2F305A152DE6B13500C537FB /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		2F2E50EE2DE5E9790099CE70 /* SectionCell */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SectionCell;
-			sourceTree = "<group>";
-		};
-		2F305A122DE6A8ED00C537FB /* Header */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Header;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2F2E50BA2DE5E04C0099CE70 /* Frameworks */ = {
@@ -117,7 +106,7 @@
 		2F2E50DA2DE5E5910099CE70 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2F305A122DE6A8ED00C537FB /* Header */,
+				2F305A162DE6B13500C537FB /* Header */,
 				2F2E50CC2DE5E4E40099CE70 /* TvingMainView.swift */,
 			);
 			path = View;
@@ -146,7 +135,6 @@
 		2F2E50E52DE5E5AA0099CE70 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				2F2E50EE2DE5E9790099CE70 /* SectionCell */,
 				2F2E50CD2DE5E4E40099CE70 /* Week_07App.swift */,
 			);
 			path = App;
@@ -189,6 +177,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		2F305A162DE6B13500C537FB /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				2F305A152DE6B13500C537FB /* SectionHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,10 +199,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				2F2E50EE2DE5E9790099CE70 /* SectionCell */,
-				2F305A122DE6A8ED00C537FB /* Header */,
 			);
 			name = Week_07;
 			packageProductDependencies = (
@@ -275,6 +267,7 @@
 				2F3059B02DE5F21700C537FB /* Top20Model.swift in Sources */,
 				2F3059B12DE5F21700C537FB /* BannerModel.swift in Sources */,
 				2F3059B32DE5FBC900C537FB /* Font+.swift in Sources */,
+				2F305A172DE6B13500C537FB /* SectionHeaderView.swift in Sources */,
 				2F2E50CF2DE5E4E40099CE70 /* TvingMainView.swift in Sources */,
 				2F3059C32DE6003D00C537FB /* Color+.swift in Sources */,
 				2F2E50ED2DE5E8D90099CE70 /* ImageLiterals.swift in Sources */,

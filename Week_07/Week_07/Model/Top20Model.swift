@@ -5,7 +5,7 @@
 //  Created by 정정욱 on 5/1/25.
 //
 
-import UIKit
+import SwiftUI
 
 struct Top20Model: Identifiable {
     var id = UUID()

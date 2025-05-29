@@ -14,46 +14,70 @@ struct TvingMainView: View {
     let popularMovieModel = PopularMovieModel.mockData()
     let baseBallModel = BaseBallModel.mockData()
     let channelModel = ChannelModel.mockData()
+
+    @State private var isTabBarSticky: Bool = false
+    @State private var tabBarOffset: CGFloat = 0
     
     var body: some View {
-        ScrollView {
-            
-            headerView
-            
-            ScrollableTabBarView()
-            //MARK: Banner Section
-            
-            BannerScrollView(bannerModel: bannerModel)
-            
-            //MARK: Top20 Section
-            Top20ScrollView(top20Model: top20Model)
-            
-            PopularLiveScrollView(popularLiveModel: popularLiveModel)
-            
-            PopularMovieScrollView(popularMovieModel: popularMovieModel)
-            
-            BaseBallScrollView(baseBallModel: baseBallModel)
-        
-            ChannelScrollView(channelModel: channelModel)
-            
-            BottomInfoView()
+        ZStack(alignment: .top) {
+            ScrollView {
+                VStack(spacing: 0) {
+                    headerView
+                    GeometryReader { geo in
+                        Color.clear
+                            .onAppear {
+                                tabBarOffset = geo.frame(in: .global).minY
+                            }
+                            .background(
+                                GeometryReader { innerGeo in
+                                    Color.clear
+                                        .onChange(of: innerGeo.frame(in: .global).minY) { oldValue, newValue in
+                                            withAnimation(.easeInOut(duration: 0.2)) {
+                                                isTabBarSticky = newValue < 60
+                                            }
+                                        }
+                                }
+                            )
+                    }
+                    .frame(height: 0)
 
+                    if !isTabBarSticky {
+                        ScrollableTabBarView()
+                            .background(Color.black)
+                    }
+
+                    BannerScrollView(bannerModel: bannerModel)
+                    Top20ScrollView(top20Model: top20Model)
+                    PopularLiveScrollView(popularLiveModel: popularLiveModel)
+                    PopularMovieScrollView(popularMovieModel: popularMovieModel)
+                    BaseBallScrollView(baseBallModel: baseBallModel)
+                    ChannelScrollView(channelModel: channelModel)
+                    BottomInfoView()
+                }
+            }
+            
+            if isTabBarSticky {
+                VStack(spacing: 0) {
+                    ScrollableTabBarView()
+                }
+                .transition(.move(edge: .top))
+                .animation(.easeInOut(duration: 0.2), value: isTabBarSticky)
+                .zIndex(1)
+            }
         }
         .background(Color.black)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
     }
-    
+
     var headerView: some View {
         HStack {
             Image(uiImage: ImageLiterals.tving)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 191, height: 78)
-            
+
             Spacer()
-            
-            HStack(spacing: 10){
+
+            HStack(spacing: 10) {
                 Image(uiImage: ImageLiterals.search)
                     .resizable()
                     .scaledToFit()
@@ -64,7 +88,10 @@ struct TvingMainView: View {
                     .frame(width: 30, height: 30)
             }
         }
-        .padding(.trailing, 10)
+        .padding(.horizontal, 16)
+        .padding(.top, 10)
+        .padding(.bottom, 8)
+        .background(Color.black)
     }
 }
 

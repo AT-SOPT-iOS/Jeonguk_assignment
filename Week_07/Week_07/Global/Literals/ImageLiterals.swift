@@ -51,6 +51,13 @@ enum ImageLiterals {
     static var suzume: UIImage { .load(name: "suzume") }
     static var theRoadOfTheRings: UIImage { .load(name: "theRoadOfTheRings") }
     
+    //MARK: - Channel
+    
+    static var afc: UIImage { .load(name: "afc") }
+    static var appleTV: UIImage { .load(name: "appleTV") }
+    static var kbl: UIImage { .load(name: "kbl") }
+    static var kbo: UIImage { .load(name: "kbo") }
+    
     //MARK: ETC
     
     static var search: UIImage { .load(name: "SearchIamge") }

@@ -26,7 +26,13 @@ extension Color {
     static var gray5: Color {
         return Color(hex: "#191919")
     }
-
+    static var gray6: Color {
+        return Color(hex: "#212121")
+    }
+    static var gray7: Color {
+        return Color(hex: "#8C8C8C")
+    }
+    
     init(hex: String, alpha: Double = 1.0) {
         var hexFormatted: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 

@@ -20,6 +20,7 @@ struct TvingMainView: View {
             
             headerView
             
+            ScrollableTabBarView()
             //MARK: Banner Section
             
             BannerScrollView(bannerModel: bannerModel)
@@ -63,7 +64,7 @@ struct TvingMainView: View {
                     .frame(width: 30, height: 30)
             }
         }
-        .padding(.horizontal, 10)
+        .padding(.trailing, 10)
     }
 }
 
